@@ -1,8 +1,10 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import IdentityModal from "react-netlify-identity-widget"
 
 const Header = ({ siteTitle }) => {
+  const [dialog, setDialog] = React.useState(false)
   return (
     <header
       style={{
@@ -28,6 +30,18 @@ const Header = ({ siteTitle }) => {
             {siteTitle}
           </Link>
         </h1>
+        <div>
+          <button className="RNIW_btn" onClick={() => setDialog(true)}>
+            Log In
+          </button>
+        </div>
+        <IdentityModal
+          showDialog={dialog}
+          onCloseDialog={() => setDialog(false)}
+          onLogin={user => console.log("hello")}
+          onSignup={user => console.log("welcome")}
+          onLogout={() => console.log("bye")}
+        />
       </div>
     </header>
   )
