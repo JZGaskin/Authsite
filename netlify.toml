@@ -1,6 +1,3 @@
-[Settings]
-ID = "Your_Site_ID"
-
 [build]
 
 command = "yarn build"
